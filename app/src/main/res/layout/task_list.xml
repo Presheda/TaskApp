@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewTask"
+            type="com.precious.task.model.ViewTask" />
+
+        <variable
+            name="task"
+            type="com.precious.task.model.Task" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="@{()-> viewTask.taskId(task.id)}"
+        app:cardElevation="5dp"
+        android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:id="@+id/taskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        android:text="@{task.taskTitle}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lastDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/taskTitle"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle"
+        app:setDate="@{task.dateLastUpdated}" />
+
+    <TextView
+        app:setPriorityColor="@{task.taskPriority}"
+        android:id="@+id/priorityTextView"
+        style="@style/TextAppearance.AppCompat.Small"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/priority_circle"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@android:color/primary_text_light"
+        app:layout_constraintBottom_toBottomOf="@+id/lastDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/taskTitle"
+        tools:text="1" />
+
+    <!--  app:setPriorityColor="@{task.taskPriority}"
+
+
+   app:setDate="@{task.dateLastUpdated}"
+    -->
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+</layout>
